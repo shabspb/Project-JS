@@ -36,7 +36,7 @@ function chooseExpenses() {
 
         } else {
             console.log("bad result");
-            i = i - 1;
+            i--;
         }
     }    
 }
@@ -113,7 +113,7 @@ function checkSavings() {
 checkSavings();
 
 function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 1; i <= 3; i++) {
         let qExpenses = prompt("Статья необязательных расходов?", "");
         let aExpenses = prompt("Во сколько обойдётся?", "");
         
@@ -126,7 +126,7 @@ function chooseOptExpenses() {
             appData.optionalExpenses[qExpenses] = aExpenses;
         } else {
             console.log("bad result");
-            i = i - 1;
+            i--;
         }
     }
 
