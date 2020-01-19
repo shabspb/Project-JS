@@ -76,15 +76,36 @@ let appData = {
                 appData.optionalExpenses[qExpenses] = aExpenses;
             } else {
                 console.log("bad result");
-                i == ;
+                i--;;
             }
         }
     },
-    chooseIncome: function() {
+    chooseIncome: function() {        
+        
         let items = prompt("Что принесёт дополнительный доход? (Перечислите через запятую)", "");
-        appData.income = items.split(", ");
+            
+        if (typeof(items) != "string" || items == "" || typeof(items) == null) {
+                console.log("Вы ввели некорректное значение или не ввели его вовсе");
+        } else {
+            appData.income = items.split(", ");            
+            appData.income.push(prompt("Может что-то ещё?"));
+            appData.income.sort();                
+        }
+
+        appData.income.forEach (function(itemmassive, i) {
+            alert("Способы доп. заработка: " + (i+1) + " - " + itemmassive);
+        });
     }
 };
+
+for (let key in appData) {
+    console.log('Наша программа включает в себя данные: ' + key + '' + appData[key]);
+}
+
+
+/* Задание
+2) При помощи метода перебора массива(forEach) вывести на экран сообщение "Способы доп. заработка: " и полученные способы (внутри chooseIncome).
+Товары должны начинаться с 1, а не с 0. Выполняем этот пункт в chooseIncome.*/
 
 /*Используем цикл while
 let i = 0;
