@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let startBtn = document.getElementById("start"),
     budgetValue = document.getElementsByClassName('budget-value')[0],
@@ -23,6 +23,16 @@ let startBtn = document.getElementById("start"),
     yearValue = document.querySelector('.year-value'),
     monthValue = document.querySelector('.month-value'),
     dayValue = document.querySelector('.day-value');
+
+expensesItem.disabled = true;
+optionalExpensesBtn.disabled = true;
+countBtn.disabled = true;
+
+startBtn.onclick = function () {
+    expensesItem.disabled = false;
+    optionalExpensesBtn.disabled = false;
+    countBtn.disabled = false;
+};
 
 let money, time;
 
@@ -76,7 +86,17 @@ countBtn.addEventListener('click', function () {
 
     if (appData.budget != undefined) {
 
-        appData.moneyPerDay = (appData.budget / 30).toFixed();
+        let sum = 0;
+
+        for (let i = 0; i < expensesItem.length; i++) {
+            let a = expensesItem[i].value,
+                b = expensesItem[++i].value;
+
+            appData.expenses[a] = b;
+            sum += +b;
+        }
+
+        appData.moneyPerDay = ((appData.budget - sum) / 30).toFixed();
         dayBudgetValue.textContent = appData.moneyPerDay;
 
         if (appData.moneyPerDay < 100) {
@@ -146,3 +166,12 @@ let appData = {
     income: [],
     savings: false,
 };
+
+
+/*
+
+3) Реализовать функционал: при расчете дневного бюджета учитывать сумму 
+обязательных трат(т.e.от бюджета на месяц отнимаем общую сумму всех обяз.
+трат и ее делим на 30 дней)
+
+*/
