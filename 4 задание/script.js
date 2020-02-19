@@ -21,7 +21,7 @@ let appData = {
     optionalExpenses: {},
     income: [],
     savings: true,
-    chooseExpenses: function() {
+    chooseExpenses: function () {
         for (let i = 0; i < 2; i++) {
             let a = prompt("Введите обязательную статью расходов в этом месяце", "");
             let b = prompt("Во сколько обойдется?", "");
@@ -38,11 +38,11 @@ let appData = {
             }
         }
     },
-    detectDayBudget: function() {
+    detectDayBudget: function () {
         appData.moneyPerDay = (appData.budget / 30).toFixed();
         alert("Ежедневный бюджет: " + appData.moneyPerDay);
     },
-    detectLevel: function() {
+    detectLevel: function () {
         if (appData.moneyPerDay < 100) {
             alert("Минимальный уровень достатка");
         } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
@@ -53,7 +53,7 @@ let appData = {
             alert("Произошла ошибка");
         }
     },
-    checkSavings: function() {
+    checkSavings: function () {
         if (appData.savings == true) {
             let save = +prompt("Какова сумма накоплений"),
                 percent = +prompt("Под какой процент");
@@ -62,7 +62,7 @@ let appData = {
             alert("Доход в месяц с вашего депозита: " + (appData.monthIncome).toFixed());
         }
     },
-    chooseOptExpenses: function() {
+    chooseOptExpenses: function () {
         for (let i = 0; i < 3; i++) {
             let qExpenses = prompt("Статья необязательных расходов?", "");
             let aExpenses = prompt("Во сколько обойдётся?", "");
@@ -80,20 +80,20 @@ let appData = {
             }
         }
     },
-    chooseIncome: function() {        
-        
+    chooseIncome: function () {
+
         let items = prompt("Что принесёт дополнительный доход? (Перечислите через запятую)", "");
-            
-        if (typeof(items) != "string" || items == "" || typeof(items) == null) {
-                console.log("Вы ввели некорректное значение или не ввели его вовсе");
+
+        if (typeof (items) != "string" || items == "" || typeof (items) == null) {
+            console.log("Вы ввели некорректное значение или не ввели его вовсе");
         } else {
-            appData.income = items.split(", ");            
+            appData.income = items.split(", ");
             appData.income.push(prompt("Может что-то ещё?"));
-            appData.income.sort();                
+            appData.income.sort();
         }
 
-        appData.income.forEach (function(itemmassive, i) {
-            alert("Способы доп. заработка: " + (i+1) + " - " + itemmassive);
+        appData.income.forEach(function (itemmassive, i) {
+            alert("Способы доп. заработка: " + (i + 1) + " - " + itemmassive);
         });
     }
 };
@@ -141,6 +141,3 @@ do {
         i++;
 } while( i < 2 );
 */
-
-
-
