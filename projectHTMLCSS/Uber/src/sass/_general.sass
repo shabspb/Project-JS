@@ -346,33 +346,34 @@ nav
                     background: url('../icons/check_red.png') center center / cover no-repeat
 
 .world
+    position: relative
     min-height: 717px  
     background: url('../img/bg_map.jpg') center center / cover no-repeat
     padding: 49px 0 
     &_cities
-        display: block
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        bottom: 49px
         text-align: center
-        margin-top: 486px
-        color: #1fbad6;       
         font-size: 15px
-        font-weight: 400;        
+        font-weight: 400
+        line-height: 68px
         text-transform: uppercase
+        color: #1fbad6
         &:hover 
             text-decoration: none
             color: #fff
             transition: .4s all
 
-footer 
-    padding: 14px 23px 39px 23px
-    a 
-        &:hover 
-            text-decoration: none
-.footer
+footer
+    padding: 14px 23px 39px 23px    
+.footer        
     &_divider
         width: 299px
         height: 4px
         background-color: #1fbad6
-        margin: 0 auto                  
+        margin: 0 auto             
     &_wrapper
         display: flex
         justify-content: space-between
@@ -401,15 +402,18 @@ footer
     &_links
         width: 390px
         margin: 0 auto
+        a
+            text-decoration: none
+            +link_hover
         &_main 
             display: flex
-            justify-content: space-around            
+            justify-content: space-between
+            padding: 0 10px
             a 
                 color: #070716
                 font-size: 15px
                 font-weight: 300
                 text-transform: uppercase
-                +link_hover
         &_sub 
             display: flex
             justify-content: space-between
@@ -419,7 +423,6 @@ footer
                 font-size: 11px
                 font-weight: 300
                 text-transform: uppercase
-                +link_hover
         &_lang 
             display: block
             margin: 0 auto
@@ -429,7 +432,5 @@ footer
             margin-top: 19px
             text-transform: uppercase
             text-align: center
-    &_mobile
-
-.xs-visible
+.xs-visible 
     display: none
