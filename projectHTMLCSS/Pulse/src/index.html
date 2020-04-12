@@ -7,11 +7,13 @@
     <title>Pulse</title>
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="css/font.css">
+    <!-- <link rel="stylesheet" href="css/slick.css"> !!!!!!slick jquery код для карусели!!!!!!-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
-    <div class="promo">
+    <section class="promo">
         <div class="container">
             <header class="header">
                 <a href="#" class="header__logo">
@@ -27,8 +29,8 @@
                 </div>
             </header>
             <div class="promo__wrapper">
-                <div class="promo__header">Подбор пульсометра</div>
-                <div class="promo__subheader">с учётом Вашего уровня подготовки</div>
+                <h1 class="promo__header">Подбор пульсометра</h1>
+                <h2 class="promo__subheader">с учётом Вашего уровня подготовки</h2>
                 <div class="promo__icons">
                     <div class="promo__icon">
                         <img src="icons/timer.png" alt="timer">
@@ -53,10 +55,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="advantages">
+    </section>
+    <section class="advantages">
         <div class="container">
-            <div class="advantages__header">НАШИ ПРЕИМУЩЕСТВА</div>
+            <h2 class="title">НАШИ ПРЕИМУЩЕСТВА</h2>
             <div class="advantages__wrapper">
                 <div class="advantages__item">
                     <div class="advantages__icon"><img src="icons/cup.png" alt="cup"></div>
@@ -81,7 +83,37 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="consultation">
+        <div class="container">
+            <h2 class="title title_left">Получите бесплатную консультацию<br>
+                по подбору пульсометра </h2>
+            <div class="consultation__descr">Просто заполните форму заявки<br>
+                и мы перезвоним вам в течении 10 минут</div>
+            <form action="#" class="feed-form">
+                <input name='name' required placeholder="Ваше имя" type="text">
+                <input name='phone' required placeholder="Ваш телефон" type="number">
+                <input name='email' required placeholder="Ваш E-mail" type="email">
+                <button class="button button_submit">заказать консультацию</button>
+            </form>
+        </div>
+    </section>
+    <section class="carousel">
+        <div class="container">
+            <div class="carousel__inner">
+                <div><img src="img/polar-m400-triple.jpg" alt="slide_1"></div>
+                <div><img src="img/polar-duo.jpg" alt="slide_2"></div>
+                <div><img src="img/polar-m600-trio.jpg" alt="slide_3"></div>
+            </div>
+            <button type="button" class="prev hidden-1200"><img src="icons/chevron-left-solid.png"></button>
+            <button type="button" class="next hidden-1200"><img src="icons/chevron-right-solid.png"></button>
+        </div>
+    </section>
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/slick.min.js"></script>                                                                !!!!!!slick jquery код для карусели!!!!!!-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

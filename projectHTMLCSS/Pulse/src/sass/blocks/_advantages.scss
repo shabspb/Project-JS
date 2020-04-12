@@ -4,13 +4,6 @@
     background-color: #f6f6f6;
 
 
-    &__header {
-        color: #0d0d0d;
-        font-size: 30px;
-        font-weight: 700;
-        text-align: center;
-    }
-
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -36,6 +29,7 @@
         color: #0d0d0d;
         font-size: 14px;
         font-weight: 300;
+        line-height: 16px;
 
         a {
             color: #ff0000;
