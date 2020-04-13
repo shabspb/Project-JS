@@ -1,0 +1,207 @@
+.catalog {
+    padding-bottom: 103px; //в предыдущей секции был padding-bottom, поэтому здесь верхний отступ не нужен
+
+    &__tabs {
+        margin-top: 69px;
+        list-style-type: none; // убрал точки в списке
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-inline-start: 0;
+        margin-bottom: 0;
+    }
+
+    &__tab {
+        width: 220px;
+        height: 50px;
+        border: 2px solid #d0d0d0;
+        color: #6b6b6b;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 48px; // поставил высоту строки такую же, как высота таба минус 2 пикселя бордера, чтобы выровнять текст по вертикали
+        transform: skewX(-25deg); // наклон таба
+        margin: 0 5px;
+        cursor: pointer; // курсор
+        transition: .5s all; // плавность анимации
+
+        &:hover {
+            //наведение
+            box-shadow: 3px 3px 20px $main-color; // тень на табе по (по иксу, по игрику, размытие тени, цвет тени)
+            border: none; //убрал бордер при наведении на таб
+        }
+
+
+        div {
+            transform: skewX(25deg); //наклон текста внутри таба в обратном направлении, чтобы выровнчять его
+        }
+
+        &_active {
+            background-color: $main-color;
+            color: #ffffff;
+            border: none;
+        }
+
+    }
+
+    &__content {
+        margin-top: 59px;
+        display: none; // все карточки товаров скрыты, если не активны
+        justify-content: space-between;
+        flex-wrap: wrap; //карточки, которые не помещаются в ширину - скидываем вниз
+
+        &_active {
+            display: flex; //показываем карточки когда класс активен
+        }
+    }
+
+    &-item {
+        padding: 20px 19px 26px 21px;
+        width: 300px;
+        min-height: 440px;
+        border: 2px solid #e8e8e8;
+        overflow: hidden;
+        margin-bottom: 20px;
+
+        &__img {
+            max-width: 100%; //чтобы мкартинка любого размера сжималась по размеру окна
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        &__subtitle {
+            margin-top: 20px;
+            color: #0d0d0d;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        &__descr {
+            margin-top: 16px;
+            color: #0d0d0d;
+            font-size: 14px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        &__link {
+            margin-top: 17px;
+            display: block;
+            color: $main-color;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: underline;
+            text-align: center;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+
+        hr {
+            margin-top: 19px;
+            margin-bottom: 21px;
+            border-bottom: none;
+            background-color: #e8e8e8;
+        }
+
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__old-price {
+            color: #555555;
+            font-size: 14px;
+            font-weight: 300;
+            text-decoration: line-through;
+            line-height: 14px;
+        }
+
+        &__price {
+            margin-top: 9px;
+            color: #050505;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+
+        //обёртка для карточки товара
+        &__wrapper {
+            display: flex;
+            width: calc(200% + 40px); //высчитываем ширину через функцию, чтобы правильно расположить карточки друг от друга
+        }
+
+        //блок лицевой карточки товара
+        &__content {
+            width: 50%; //половина от обёртки
+            margin-right: 0px; //когда класс не активен - без маржина
+            transform: translateX(-100%); //когда класс не активен убираем карточку на 100% влево (в content-item свойство overflow:hidden скрывает часть вне блока)
+            transition: .5s all;
+
+            &_active {
+                transform: translateX(0%); //когда класс активен карточка остаётся на своём месте внутри блока(в content-item свойство overflow:hidden скрывает часть вне блока)
+                margin-right: 20px; // когда класс активен - с маржином
+            }
+        }
+
+        //блок обратной стороны карточки товара
+        &__list {
+            position: relative; //для позиционирования псевдоэлемента
+            width: 50%; //половина от обёртки
+            margin-left: 20px; // когда класс не активен - с маржином
+            transform: translateX(0%); //когда класс не активен карточка остаётся на своём месте вне блока(в content-item свойство overflow:hidden скрывает часть вне блока)
+            transition: .5s all;
+            padding-right: 20px;
+            padding-left: 19px;
+            margin-bottom: 0;
+            list-style-type: none; // убрали стандартные маркеры у списка
+
+            &_active {
+                transform: translateX(-100%); //когда класс активен карточка сдвигается на 100% влево внутрь блока(в content-item свойство overflow:hidden скрывает часть вне блока)
+                margin-left: 0px; // когда класс активен - без маржина
+            }
+
+            li {
+                position: relative; //для позиционирования псевдоэлемента
+                color: #555555;
+                font-size: 14px;
+                font-weight: 300;
+                margin-bottom: 21px;
+
+                // создаём псевдоэлемент, красные квадратные маркеры для списка
+                &:before {
+                    content: '';
+                    position: absolute; //для позиционирования псевдоэлемента
+                    width: 5px;
+                    height: 5px;
+                    background-color: $main-color;
+                    left: -14px;
+                    top: 7px;
+                }
+            }
+        }
+
+        &__back {
+            position: absolute; //абсолютное, потому что ссылка "назад" должна быть всегда внизу
+            bottom: 0px; //ссылка внизу
+            left: 50%;
+            transform: translateX(calc(-50% - 19px)); // из-за падинг райт 19пк в &__list
+            display: block;
+            color: $main-color;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: underline;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+
+    }
+}
