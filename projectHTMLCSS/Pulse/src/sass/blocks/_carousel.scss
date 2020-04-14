@@ -41,4 +41,19 @@
             margin: 0 auto;
         }
     }
+
+
+    .tns-outer {
+        .tns-nav {
+            display: flex;
+            justify-content: center;
+            height: 10px;
+
+            &-active {
+                background-color: $main-color;
+                border: none;
+            }
+        }
+    }
+
 }
