@@ -24,12 +24,12 @@ let appData = {
 };
 
 function chooseExpenses() {
-    for (let i = 0; i < 2; i++ ) {
+    for (let i = 0; i < 2; i++) {
         let a = prompt("Введите обязательную статью расходов в этом месяце", "");
         let b = prompt("Во сколько обойдется?", "");
 
-        if (typeof(a) === "string" && typeof(a) != null && typeof(b) != null
-            && a != "" && b != "" && a.length < 50) {
+        if (typeof (a) === "string" && typeof (a) != null && typeof (b) != null &&
+            a != "" && b != "" && a.length < 50) {
             console.log('done');
 
             appData.expenses[a] = b;
@@ -38,7 +38,7 @@ function chooseExpenses() {
             console.log("bad result");
             i--;
         }
-    }    
+    }
 }
 
 chooseExpenses();
@@ -87,12 +87,12 @@ function detectDayBudget() {
 detectDayBudget();
 
 function detectLevel() {
-    
-    if(appData.moneyPerDay < 100) {
+
+    if (appData.moneyPerDay < 100) {
         alert("Минимальный уровень достатка");
-    } else if(appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
         alert("Средний уровень достатка");
-    } else if(appData.moneyPerDay > 2000) {
+    } else if (appData.moneyPerDay > 2000) {
         alert("Высокий уровень достатка");
     } else {
         alert("Произошла ошибка");
@@ -106,7 +106,7 @@ function checkSavings() {
         let save = +prompt("Какова сумма накоплений"),
             percent = +prompt("Под какой процент");
 
-        appData.monthIncome = save/100/12*percent;
+        appData.monthIncome = save / 100 / 12 * percent;
         alert("Доход в месяц с вашего депозита: " + (appData.monthIncome).toFixed());
     }
 }
@@ -116,11 +116,11 @@ function chooseOptExpenses() {
     for (let i = 1; i <= 3; i++) {
         let qExpenses = prompt("Статья необязательных расходов?", "");
         let aExpenses = prompt("Во сколько обойдётся?", "");
-        
-        if(typeof(qExpenses) === "string" && typeof(qExpenses) != null
-            && typeof(aExpenses) === "string" && typeof(aExpenses) != null 
-            && qExpenses != "" && aExpenses != "" && qExpenses.length < 50) {
-        
+
+        if (typeof (qExpenses) === "string" && typeof (qExpenses) != null &&
+            typeof (aExpenses) === "string" && typeof (aExpenses) != null &&
+            qExpenses != "" && aExpenses != "" && qExpenses.length < 50) {
+
             console.log("ok");
 
             appData.optionalExpenses[qExpenses] = aExpenses;
@@ -133,6 +133,3 @@ function chooseOptExpenses() {
 }
 
 chooseOptExpenses();
-
-
-

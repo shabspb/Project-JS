@@ -17,7 +17,7 @@ menu.appendChild(menuItemLi);
 document.body.style.backgroundImage = "url('img/apple_true.jpg')"; // Меняем фон
 
 
-title.textContent = "Мы продаем только подлинную технику Apple" // Заменить текст
+title.textContent = "Мы продаем только подлинную технику Apple"; // Заменить текст
 
 adv.remove(); // Удалить рекламу со страницы
 

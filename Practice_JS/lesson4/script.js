@@ -76,7 +76,7 @@ let appData = {
                 appData.optionalExpenses[qExpenses] = aExpenses;
             } else {
                 console.log("bad result");
-                i--;;
+                i--;
             }
         }
     },

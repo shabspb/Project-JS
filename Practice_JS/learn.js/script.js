@@ -7,9 +7,9 @@ function pow(x, n) {
 }
 
 let x = prompt("x?", ''),
-    n = prompt("n?", '')
+    n = prompt("n?", '');
 if (n <= 0) {
     alert(`Степень ${n} не поддерживается, введите целую степень, большую 0`);
 } else {
-    alert(pow(x, n))
+    alert(pow(x, n));
 }
